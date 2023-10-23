@@ -68,7 +68,7 @@ const Login = async (req, res, next) => {
       if(user.role==="Admin"){
         console.log("Successfully logged in as Admin");
         next();
-        return res.status(201).json({success:true,message:"Successfully logged in as Admin"});
+        return res.status(201).json({success:true,message:"Successfully logged in as Admin",token});
       }else if(user.role==="Student"){
         console.log("Successfully logged in as Student");
         next();
