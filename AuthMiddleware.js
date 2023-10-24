@@ -23,7 +23,8 @@ const userVerification = (req, res) => {
 
 const checkUser = async (req, res, next) => {
   const token = req.body.cookies.jwt;
-  console.log(token);
+  console.log(req.body.cookies);
+  console.log(req.body,"body");
   let user=null;
   if (token) {
     jwt.verify(token, process.env.TOKEN_KEY, async (err, decodedToken) => {
