@@ -64,8 +64,8 @@ const Login = async (req, res, next) => {
         return res.json({success:false,message:msg});
       }
       const token = createToken(user._id);
-      //res.cookie('jwt', token, {secure: true,withCredentials:true, httpOnly: false, maxAge: maxAge * 1000 });
-      setcookie("jwt", token, time() + 3600, "/", "", true, true);
+      res.cookie('jwt', token, {secure: true,withCredentials:true, httpOnly: false, maxAge: maxAge * 1000 });
+     // setcookie("jwt", token, time() + 3600, "/", "", true, true);
       if(user.role==="Admin"){
         console.log("Successfully logged in as Admin");
         next();
