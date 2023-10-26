@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import { login, admin, student, teacher, parents, attendance, student_progress_report, chat, time_table } from "./user.js";
 import { AdminSignupSchema, userLoginSchema, studentRegistrationSchema, staffRegistrationSchema, 
   parentsRegistrationSchema, studentProgressReportSchema, attendanceSchema, timeTableSchema } from "./schema.js";
-import jwt from "jsonwebtoken";
+//import jwt from "jsonwebtoken";
 import { ObjectId } from "mongodb";
 
 const Signup = async (req, res, next) => {
