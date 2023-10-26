@@ -5,22 +5,6 @@ import {ObjectId} from "mongodb";
 
 dotenv.config();
 
-const userVerification = (req, res) => {
-  const token = req.cookies.token;
-  if (!token) {
-    return res.json({ status: false })
-  }
-  jwt.verify(token, process.env.TOKEN_KEY, async (err, data) => {
-    if (err) {
-     return res.json({ status: false })
-    } else {
-      const user = await login.findOne({_id:new ObjectId(data.id)});
-      if (user) return res.json({ status: true, user: user.email})
-      else return res.json({ status: false })
-    }
-  })
-}
-
 const checkUser = async (req, res, next) => {
   const token = req.body.cookies;
   console.log(req.body.cookies);
