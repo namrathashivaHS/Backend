@@ -73,15 +73,15 @@ const Login = async (req, res, next) => {
       }else if(user.role==="Student"){
         console.log("Successfully logged in as Student");
         next();
-        return res.status(201).json({success:true,message:"Successfully logged in as Student"});
+        return res.status(201).json({success:true,message:"Successfully logged in as Student",token});
       }else if(user.role==="Teacher"){
         console.log("Successfully logged in as Teacher");
         next();
-        return res.status(201).json({success:true,message:"Successfully logged in as Teacher"});
+        return res.status(201).json({success:true,message:"Successfully logged in as Teacher",token});
       }else if(user.role==="Parents"){
         console.log("Successfully logged in as Parents");
         next();
-        return res.status(201).json({success:true,message:"Successfully logged in as Parents"});
+        return res.status(201).json({success:true,message:"Successfully logged in as Parents",token});
       }
       
     }
