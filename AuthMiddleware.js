@@ -22,7 +22,7 @@ const userVerification = (req, res) => {
 }
 
 const checkUser = async (req, res, next) => {
-  const token = req.body.cookies.jwt;
+  const token = req.body.cookies;
   console.log(req.body.cookies);
   console.log(req.body,"body");
   let user=null;
