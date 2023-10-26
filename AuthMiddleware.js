@@ -32,4 +32,4 @@ const checkUser = async (req, res, next) => {
   
 };
 
-export { userVerification, checkUser };
+export { checkUser };
