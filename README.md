@@ -28,6 +28,6 @@ Admin Credentials, email:-Dudu@gmail.com, password:-Bubu@1234
 
 Teacher Credentials, email:-mamatha@gmail.com, password:-Mama@1234
 
-Student Credentials, email:-smitha@gmail.com, password:-Smit@1010
+Student Credentials, email:-smitha123@gmail.com, password:-Smit@1010
 
 Parents Credentials, email:-ramachandra@gmail.com, password:-Rama@1234
