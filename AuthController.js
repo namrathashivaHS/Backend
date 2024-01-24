@@ -640,7 +640,7 @@ const DeleteStaff = async(req,res)=>{
   try{
     const delData = await teacher.findOneAndDelete({emp_id:emp_num});
     const logData = await login.findOneAndDelete({email:delData.email});
-    if(data){
+    if(deldata){
       msg="Staff Deleted Successfully";
       return res.json({success:true,message:msg,delData});
     }else{
