@@ -984,7 +984,7 @@ const DeleteParents = async(req,res)=>{
   try{
     const delData = await parents.findOneAndDelete({_id:new ObjectId(id)});
     const logData = await login.findOneAndDelete({email:delData.email});
-    if(data){
+    if(delData){
       msg="Parents Deleted Successfully";
       return res.json({success:true,message:msg,delData});
     }else{
