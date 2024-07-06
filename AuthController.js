@@ -224,14 +224,11 @@ const StudentProfile=async(req,res,next)=>{
 const ViewStudent=async (req,res)=>{
   let msg;
   try{
-    const cursor = student.find();
-    const data = await cursor.toArray();
+    const stuData = await student.find().toArray();
     
-    const cur = attendance.find();
-    const attData = await cur.toArray();
+    const attData = await attendance.find().toArray();
 
-    const curr = teacher.find();
-    const teach = await curr.toArray();
+    const teachData = await teacher.find().toArray();
 
     const attendanceCounts = {};
 
@@ -267,11 +264,11 @@ const ViewStudent=async (req,res)=>{
       }
     }
     const mergedata = []
-    for(const item of data){
+    for(const item of stuData){
       const { roll_no } = item;
       const { class_teacher_id } = item;
       let name;
-      for(const id of teach){
+      for(const id of teachData){
         if(class_teacher_id == id.emp_id)
           name = id.first_name+' '+id.last_name
       }
@@ -287,7 +284,7 @@ const ViewStudent=async (req,res)=>{
       mergedata.push(merge);
       
     }
-    if(data.length>0){
+    if(stuData.length>0){
       msg='Student data fetched successfully';
       return res.status(200).json({success:true,message:msg,stuData:mergedata});
     }
@@ -297,7 +294,6 @@ const ViewStudent=async (req,res)=>{
     return res.status(400).json({success:false,message:msg});
   }
 }
-
 const EditStudent = async (req,res) => {
   let msg;
   const roll_no  = req.params.id;
