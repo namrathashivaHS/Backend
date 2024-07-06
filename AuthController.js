@@ -146,19 +146,22 @@ const AddStudent = async (req,res)=>{
         .status(404)
         .json({msg});
     }
-    const stu = await student.find({class_std}).toArray();
-    let max=0;
-    for(const item of stu){
-      const str = item.roll_no.match(/\d+$/);
-        const lastNumericalPart = str[0];
-      const extractedNumber = parseInt(lastNumericalPart, 10);
-      if(max<extractedNumber){
-        max=extractedNumber;
-      }
-    }
-      const c = max+1;
-      var st=""+c;
-      var cla=""+class_std;
+    // const stu = await student.find({class_std}).toArray();
+    // let max=0;
+    // for(const item of stu){
+    //   const str = item.roll_no.match(/\d+$/);
+    //     const lastNumericalPart = str[0];
+    //   const extractedNumber = parseInt(lastNumericalPart, 10);
+    //   if(max<extractedNumber){
+    //     max=extractedNumber;
+    //   }
+    // }
+    const stu = await student.find({class_std,roll_no: { $regex: /\d+$/ }}).sort({ roll_no: 1 }).toArray();
+    let max = stu[stu.length-1].roll_no.match(/\d+$/);
+    max=parseInt(max,10);
+    const c = max+1;
+    var st=""+c;
+    var cla=""+class_std;
     if(c<10){
       const pad="00";
       var ans=pad.substring(0,pad.length-st.length)+st;
