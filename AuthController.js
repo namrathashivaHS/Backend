@@ -380,7 +380,7 @@ const DeleteStudent = async(req,res)=>{
     const logData = await login.findOneAndDelete({email:delData.email});
     const attData = await attendance.deleteMany({student_id:roll_no});
     if(delData){
-      msg="Studnet Deleted Successfully";
+      msg="Student Deleted Successfully";
       return res.json({success:true,message:msg,delData});
     }else{
       msg="Something went wrong please try again later";
